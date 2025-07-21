@@ -8,13 +8,12 @@ const roboto = Roboto({
   display: "swap",
 });
 
-const theme = createTheme({
-  colorSchemes: { light: true, dark: true },
-  cssVariables: {
-    colorSchemeSelector: "class",
-  },
+export const lightTheme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
+  },
+  cssVariables: {
+    colorSchemeSelector: "class",
   },
   components: {
     MuiAlert: {
@@ -23,15 +22,72 @@ const theme = createTheme({
           variants: [
             {
               props: { severity: "info" },
-              style: {
-                backgroundColor: "#60a5fa",
-              },
+              style: {},
             },
           ],
         },
       },
     },
   },
+  palette: {
+    mode: "light",
+    primary: {
+      main: "#4C7578",
+      contrastText: "#eeeeee",
+    },
+    secondary: {
+      main: "#8E7DBE",
+      contrastText: "#222222",
+    },
+    background: {
+      default: "#EEEEEE",
+      paper: "#ffffff",
+    },
+    text: {
+      primary: "#4C7578",
+      secondary: "#111111",
+    },
+  },
 });
 
-export default theme;
+export const darkTheme = createTheme({
+  typography: {
+    fontFamily: roboto.style.fontFamily,
+  },
+  cssVariables: {
+    colorSchemeSelector: "class",
+  },
+  components: {
+    MuiAlert: {
+      styleOverrides: {
+        root: {
+          variants: [
+            {
+              props: { severity: "info" },
+              style: {},
+            },
+          ],
+        },
+      },
+    },
+  },
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#76ABAE",
+      contrastText: "#111111",
+    },
+    secondary: {
+      main: "#8E7DBE",
+      contrastText: "#222222",
+    },
+    background: {
+      default: "#31363F",
+      paper: "#eeeeee",
+    },
+    text: {
+      primary: "#76ABAE",
+      secondary: "#eeeeee",
+    },
+  },
+});

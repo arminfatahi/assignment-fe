@@ -1,22 +1,24 @@
+"use client";
+
 import { ThemeProvider } from "@mui/material/styles";
-import { ThemeProvider as NextThemeProvider } from "next-themes";
 import CssBaseline from "@mui/material/CssBaseline";
-import theme from "@/theme";
+import { lightTheme, darkTheme } from "@/theme";
+import { useMediaQuery } from "@mui/material";
 
 export default function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const prefersDarkMode = useMediaQuery("(prefers-color-scheme: dark)");
+  const theme = prefersDarkMode ? darkTheme : lightTheme;
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en">
       <body>
-        <NextThemeProvider attribute="class" defaultTheme="system">
-          <ThemeProvider theme={theme}>
-            <CssBaseline />
-            {children}
-          </ThemeProvider>
-        </NextThemeProvider>
+        <ThemeProvider theme={theme} defaultMode="system">
+          <CssBaseline />
+          {children}
+        </ThemeProvider>
       </body>
     </html>
   );
