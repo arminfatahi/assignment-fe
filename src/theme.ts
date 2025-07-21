@@ -16,6 +16,13 @@ export const lightTheme = createTheme({
     colorSchemeSelector: "class",
   },
   components: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          color: "red",
+        },
+      },
+    },
     MuiAlert: {
       styleOverrides: {
         root: {
@@ -58,6 +65,13 @@ export const darkTheme = createTheme({
     colorSchemeSelector: "class",
   },
   components: {
+    MuiFormHelperText: {
+      styleOverrides: {
+        root: {
+          color: "red",
+        },
+      },
+    },
     MuiAlert: {
       styleOverrides: {
         root: {
