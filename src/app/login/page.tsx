@@ -12,13 +12,17 @@ import {
 import { Google } from "@mui/icons-material";
 
 export default function LoginPage() {
+  const [emailHelper, setEmailHelper] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Email:", email);
-    console.log("Password:", password);
+    if (email === "a@a.a" && password === "salam") {
+      console.log("ok");
+      return;
+    }
+    console.log("no");
   };
 
   return (
@@ -74,13 +78,18 @@ export default function LoginPage() {
           <TextField
             label="Email"
             type="email"
+            helperText={emailHelper}
             value={email}
             sx={{
               input: (theme) => ({
                 color: theme.palette.primary.main,
               }),
             }}
-            onChange={(e) => setEmail(e.target.value)}
+            onInvalid={() => setEmailHelper("*invalid email format")}
+            onChange={(e) => {
+              setEmailHelper("");
+              setEmail(e.target.value);
+            }}
             required
             fullWidth
           />
