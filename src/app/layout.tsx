@@ -1,6 +1,4 @@
-import { ThemeProvider } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import theme from "@/theme";
+import Provider from "./Provider";
 
 export default function RootLayout({
   children,
@@ -10,10 +8,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );
