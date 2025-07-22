@@ -2,7 +2,7 @@ import { Box, CircularProgress } from "@mui/material";
 
 export function Loading({
   size,
-  color = "primary",
+  color = "primary.main",
 }: {
   size: number;
   color?: string;
