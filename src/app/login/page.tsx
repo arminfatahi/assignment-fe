@@ -10,19 +10,22 @@ import {
   Divider,
 } from "@mui/material";
 import { Google } from "@mui/icons-material";
+import { useAuth } from "@/context/AuthContext";
+import withProtectedRoute from "@/lib/AuthWrapper";
 
-export default function LoginPage() {
+function LoginPage() {
+  const { login } = useAuth();
   const [emailHelper, setEmailHelper] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (email === "a@a.a" && password === "salam") {
-      console.log("ok");
-      return;
+
+    const loggedIn = await login(email, password);
+    if (!loggedIn) {
+      console.log("failed to log in");
     }
-    console.log("no");
   };
 
   return (
@@ -120,3 +123,5 @@ export default function LoginPage() {
     </Container>
   );
 }
+
+export default withProtectedRoute(LoginPage);
