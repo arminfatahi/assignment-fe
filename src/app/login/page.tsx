@@ -12,15 +12,18 @@ import {
 import { Google } from "@mui/icons-material";
 import { useAuth } from "@/context/AuthContext";
 import withProtectedRoute from "@/lib/AuthWrapper";
+import { Loading } from "@/components/Loading";
 
 function LoginPage() {
   const { login } = useAuth();
   const [emailHelper, setEmailHelper] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setIsLoading(true);
 
     const loggedIn = await login(email, password);
     if (!loggedIn) {
@@ -107,8 +110,16 @@ function LoginPage() {
             required
             fullWidth
           />
-          <Button variant="contained" type="submit" fullWidth>
-            Login
+          <Button
+            variant="contained"
+            type="submit"
+            disabled={isLoading}
+            sx={{
+              height: 35,
+            }}
+            fullWidth
+          >
+            {isLoading ? <Loading size={30} /> : <>Login</>}
           </Button>
 
           <Divider textAlign="center">or</Divider>
