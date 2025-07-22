@@ -18,8 +18,7 @@ export default async function handler(
     try {
       await fs.writeFile(filePath, JSON.stringify({} as User, null, 2), "utf8");
       res.status(200).json({ success: true });
-    } catch (err) {
-      console.log("Failed to remove user:", err);
+    } catch {
       res.status(500).json({ error: "Failed to remove user" });
     }
   } else {

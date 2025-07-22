@@ -19,8 +19,7 @@ export default async function handler(
       const data = await fs.readFile(filePath, "utf8");
       const user: User = JSON.parse(data);
       res.status(200).json(user);
-    } catch (err) {
-      console.log("Failed to read user:", err);
+    } catch {
       res.status(500).json({ error: "Failed to read user" });
     }
   } else if (req.method === "POST") {
@@ -28,8 +27,7 @@ export default async function handler(
       const user: User = req.body;
       await fs.writeFile(filePath, JSON.stringify(user, null, 2), "utf8");
       res.status(200).json({ success: true });
-    } catch (err) {
-      console.log("Failed to add user:", err);
+    } catch {
       res.status(500).json({ error: "Failed to add user" });
     }
   } else {
