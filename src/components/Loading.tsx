@@ -1,8 +1,15 @@
 import { Box, CircularProgress } from "@mui/material";
 
-export function Loading({ size }: { size: number }) {
+export function Loading({
+  size,
+  color = "primary",
+}: {
+  size: number;
+  color?: string;
+}) {
   return (
     <Box
+      color={color}
       sx={{
         display: "flex",
         justifyContent: "center",
@@ -11,7 +18,7 @@ export function Loading({ size }: { size: number }) {
         height: "100%",
       }}
     >
-      <CircularProgress size={size} />
+      <CircularProgress size={size} color="inherit" />
     </Box>
   );
 }
