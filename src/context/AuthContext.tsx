@@ -1,3 +1,4 @@
+import Cookies from "js-cookie";
 import {
   createContext,
   useContext,
@@ -27,6 +28,9 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       const userData = await readUser();
       if (userData && userData.userID) {
         setUser(userData);
+        Cookies.set("user", JSON.stringify(userData), { expires: 7 });
+      } else {
+        Cookies.remove("user");
       }
       setLoading(false);
     };
@@ -46,6 +50,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       const success = await addUser(newUser);
       if (success) {
         setUser(newUser);
+        Cookies.set("user", JSON.stringify(newUser), { expires: 7 });
         return true;
       }
       console.log("Failed to save user");
@@ -60,6 +65,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     const success = await removeUser();
     if (success) {
       setUser(null);
+      Cookies.remove("user");
     } else {
       console.log("Failed to remove user");
     }

@@ -1,4 +1,4 @@
-import React, { useEffect, JSX } from "react";
+import React, { useEffect, useState, JSX } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -9,22 +9,24 @@ function withProtectedRoute<P extends JSX.IntrinsicAttributes>(
     const { user, loading } = useAuth();
     const router = useRouter();
     const pathname = usePathname();
+    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
       if (!loading) {
         if (!user) {
           if (pathname !== "/login") {
-            router.push("/login");
+            router.replace("/login");
           }
         } else {
           if (pathname === "/login") {
-            router.push("/dashboard");
+            router.replace("/dashboard");
           }
         }
+        setIsReady(true);
       }
     }, [user, loading, router, pathname]);
 
-    if (loading) {
+    if (loading || !isReady) {
       return <div>Loading...</div>;
     }
 
