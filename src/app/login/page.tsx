@@ -17,6 +17,8 @@ import { Loading } from "@/components/Loading";
 function LoginPage() {
   const { login } = useAuth();
   const [emailHelper, setEmailHelper] = useState("");
+  const [passHelper, setPassHelper] = useState("");
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -27,8 +29,10 @@ function LoginPage() {
 
     const loggedIn = await login(email, password);
     if (!loggedIn) {
-      console.log("failed to log in");
+      setPassHelper("*email or pass might be incorrect");
     }
+
+    setIsLoading(false);
   };
 
   return (
@@ -100,13 +104,17 @@ function LoginPage() {
           <TextField
             label="Password"
             type="password"
+            helperText={passHelper}
             value={password}
             sx={{
               input: (theme) => ({
                 color: theme.palette.primary.main,
               }),
             }}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={(e) => {
+              setPassHelper("");
+              setPassword(e.target.value);
+            }}
             required
             fullWidth
           />
