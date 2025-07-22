@@ -36,8 +36,6 @@ function LoginPage() {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: (theme) =>
-          `linear-gradient(to bottom, ${theme.palette.primary.main} ,${theme.palette.background.default})`,
       }}
     >
       <Box
