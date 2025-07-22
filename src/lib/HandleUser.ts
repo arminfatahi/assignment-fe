@@ -8,8 +8,7 @@ export async function addUser(user: User): Promise<boolean> {
       body: JSON.stringify(user),
     });
     return res.ok;
-  } catch (err) {
-    console.log("Failed to add user:", err);
+  } catch {
     return false;
   }
 }
@@ -22,8 +21,7 @@ export async function readUser(): Promise<User | null> {
       return user;
     }
     return null;
-  } catch (err) {
-    console.log("Failed to read user:", err);
+  } catch {
     return null;
   }
 }
@@ -32,8 +30,7 @@ export async function removeUser(): Promise<boolean> {
   try {
     const res = await fetch("/api/user/remove", { method: "DELETE" });
     return res.ok;
-  } catch (err) {
-    console.log("Failed to remove user:", err);
+  } catch {
     return false;
   }
 }

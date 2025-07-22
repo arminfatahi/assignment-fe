@@ -53,10 +53,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         Cookies.set("user", JSON.stringify(newUser), { expires: 7 });
         return true;
       }
-      console.log("Failed to save user");
       return false;
     } else {
-      console.log("Invalid credentials");
       return false;
     }
   };
@@ -66,8 +64,6 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     if (success) {
       setUser(null);
       Cookies.remove("user");
-    } else {
-      console.log("Failed to remove user");
     }
   };
 
