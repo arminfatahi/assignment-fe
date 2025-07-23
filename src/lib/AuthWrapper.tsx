@@ -27,10 +27,6 @@ function withProtectedRoute<P extends JSX.IntrinsicAttributes>(
       }
     }, [user, loading, router, pathname]);
 
-    if (loading || !isReady) {
-      return <Loading size={60} />;
-    }
-
     return <WrappedComponent {...props} />;
   };
 
