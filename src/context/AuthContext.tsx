@@ -44,7 +44,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         name: "salam",
         email,
         role: "user",
-        avatarURL: "avatar",
+        avatarURL: "images/avatar/profile.jpg",
       };
 
       const success = await addUser(newUser);
