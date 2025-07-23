@@ -17,7 +17,7 @@ export async function readUser(): Promise<User | null> {
   try {
     const res = await fetch("/api/user");
     if (res.ok) {
-      const user = await res.json();
+      const user: User = await res.json();
       return user;
     }
     return null;
