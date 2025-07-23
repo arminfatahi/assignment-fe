@@ -1,7 +1,6 @@
-import React, { useEffect, useState, JSX } from "react";
+import React, { useEffect, JSX } from "react";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter, usePathname } from "next/navigation";
-import { Loading } from "@/components/Loading";
 
 function withProtectedRoute<P extends JSX.IntrinsicAttributes>(
   WrappedComponent: React.ComponentType<P>,
@@ -10,7 +9,6 @@ function withProtectedRoute<P extends JSX.IntrinsicAttributes>(
     const { user, loading } = useAuth();
     const router = useRouter();
     const pathname = usePathname();
-    const [isReady, setIsReady] = useState(false);
 
     useEffect(() => {
       if (!loading) {
@@ -23,7 +21,6 @@ function withProtectedRoute<P extends JSX.IntrinsicAttributes>(
             router.replace("/dashboard");
           }
         }
-        setIsReady(true);
       }
     }, [user, loading, router, pathname]);
 
