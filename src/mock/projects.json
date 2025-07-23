@@ -190,6 +190,13 @@
           "task_status": "In Progress"
         }
       ]
+    },
+    {
+      "id": 8,
+      "project_name": "empty project",
+      "due_date": "17-11-2025",
+      "status": "On Track",
+      "tasks": []
     }
   ]
 }
