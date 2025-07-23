@@ -1,20 +1,11 @@
 import CustomSkeleton from "@/components/CustomSkeleton";
 import { useAuth } from "@/context/AuthContext";
 import { ArrowDropDown } from "@mui/icons-material";
-import {
-  Avatar,
-  Box,
-  Button,
-  Popover,
-  Stack,
-  Typography,
-  useTheme,
-} from "@mui/material";
+import { Avatar, Box, Button, Popover, Stack, Typography } from "@mui/material";
 import { useState } from "react";
 
 function Profile() {
   const { logout, user, loading } = useAuth();
-  const theme = useTheme();
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
