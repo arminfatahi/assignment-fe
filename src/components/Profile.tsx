@@ -21,14 +21,7 @@ function Profile() {
   const id = open ? "profile-popover" : undefined;
 
   return (
-    <Stack
-      direction="row"
-      alignItems="center"
-      spacing={-1.2}
-      ml="auto"
-      mr={2}
-      mt={2}
-    >
+    <Stack direction="row" alignItems="center" spacing={-1.2} paddingRight={2}>
       <Button
         aria-describedby={id}
         color="secondary"
@@ -40,7 +33,11 @@ function Profile() {
         }}
       >
         {user ? (
-          <Avatar alt={user?.name} src={user?.avatarURL ?? ""} />
+          <Avatar
+            alt={user?.name}
+            src={user?.avatarURL ?? ""}
+            sx={{ width: 56, height: 56 }}
+          />
         ) : (
           <CustomSkeleton variant="circular">
             <Avatar />
