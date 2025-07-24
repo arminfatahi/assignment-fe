@@ -15,9 +15,10 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { Search } from "@mui/icons-material";
 import { useState } from "react";
 import { useProjects } from "@/context/ProjectsContext";
+import { Loading } from "./Loading";
 
 export default function Projects() {
-  const { projects } = useProjects();
+  const { projects, loading } = useProjects();
   const projectStatus = ["All", "At Risk", "On Track", "Completed"];
   const [status, setStatus] = useState<string | null>(null);
   const [query, setQuery] = useState("");
@@ -119,6 +120,7 @@ export default function Projects() {
             tasks={project.tasks}
           />
         ))}
+        {loading && <Loading size={40} color="primary.contrastText" />}
       </Grid>
     </Box>
   );
