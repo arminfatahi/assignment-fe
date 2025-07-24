@@ -1,7 +1,7 @@
 "use client";
 
-import PieCard from "@/components/PieCard";
-import { Box, Stack, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
+import StatCard from "@/components/StatCard";
+import { Box, Grid, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
 function Stats() {
@@ -16,7 +16,7 @@ function Stats() {
   return (
     <>
       {isMobile ? (
-        <Box marginTop={4} width="70%" marginX="auto">
+        <Box marginTop={6} width="70%" marginX="auto">
           <Tabs
             value={tabIndex}
             onChange={handleTabChange}
@@ -30,22 +30,22 @@ function Stats() {
             <Tab label="Overdue" />
           </Tabs>
           <Box marginTop={2}>
-            {tabIndex === 0 && <PieCard mode="project" />}
-            {tabIndex === 1 && <PieCard mode="task" />}
-            {tabIndex === 2 && <PieCard mode="overdue" />}
+            {tabIndex === 0 && <StatCard mode="project" />}
+            {tabIndex === 1 && <StatCard mode="task" />}
+            {tabIndex === 2 && <StatCard mode="overdue" />}
           </Box>
         </Box>
       ) : (
-        <Stack
-          direction="row"
-          spacing={{ lg: 10, md: 5, sm: 2 }}
+        <Grid
+          container
+          spacing={{ lg: 9, md: 3, sm: 2 }}
           marginX="auto"
-          marginTop={4}
+          marginTop={6}
         >
-          <PieCard mode="project" />
-          <PieCard mode="task" />
-          <PieCard mode="overdue" />
-        </Stack>
+          <StatCard mode="project" />
+          <StatCard mode="task" />
+          <StatCard mode="overdue" />
+        </Grid>
       )}
     </>
   );
