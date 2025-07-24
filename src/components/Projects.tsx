@@ -18,7 +18,8 @@ import { useProjects } from "@/context/ProjectsContext";
 
 export default function Projects() {
   const { projects } = useProjects();
-  const [status, setStatus] = useState("");
+  const projectStatus = ["All", "At Risk", "On Track", "Completed"];
+  const [status, setStatus] = useState<string | null>(null);
   const [query, setQuery] = useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setStatus(event.target.value as string);
@@ -26,10 +27,11 @@ export default function Projects() {
 
   const filteredProjects = projects?.filter((item) => {
     const matchesQuery =
-      !query.length ||
-      item.project_name.toLowerCase().includes(query.toLowerCase());
-    return matchesQuery;
+      !query || item.project_name.toLowerCase().includes(query.toLowerCase());
+    const matchesStatus = status === "All" || item.status === status;
+    return matchesQuery && matchesStatus;
   });
+
   return (
     <Box
       sx={{
@@ -72,9 +74,11 @@ export default function Projects() {
                 label="Project Status"
                 onChange={handleChange}
               >
-                <MenuItem value="At Risk">At Risk</MenuItem>
-                <MenuItem value="On Track">On Track</MenuItem>
-                <MenuItem value="Completed">Completed</MenuItem>
+                {projectStatus.map((stat, id) => (
+                  <MenuItem key={id} value={stat}>
+                    {stat}
+                  </MenuItem>
+                ))}
               </Select>
             </FormControl>
           </Box>
