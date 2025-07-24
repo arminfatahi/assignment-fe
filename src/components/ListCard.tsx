@@ -9,9 +9,16 @@ import { useProjects } from "@/context/ProjectsContext";
 export default function ListCard() {
   const { projects } = useProjects();
 
+  const overDueProjects = projects?.filter((project) => {
+    const [day, month, year] = project.due_date.split("-").map(Number);
+    const dueDate = new Date(year, month - 1, day);
+    return dueDate <= new Date();
+  });
+
   const sxCol: SxProps<Theme> = {
     display: { xs: "none", sm: "block", md: "none", lg: "block" },
   };
+
   return (
     <Box width="100%" maxWidth={360} borderColor="divider">
       <Box
@@ -45,7 +52,7 @@ export default function ListCard() {
         }}
       >
         <List disablePadding>
-          {projects?.map((project) => (
+          {overDueProjects?.map((project) => (
             <ListItem key={project.id} disablePadding>
               <ListItemButton component="a">
                 <Box display="flex" py={1} width="100%">
