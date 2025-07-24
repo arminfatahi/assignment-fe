@@ -29,6 +29,7 @@ export default function ProjectCard({
       lg: 350,
       xl: 400,
     },
+    maxHeight: 180,
     height: {
       xs: "auto",
       md: "full",

@@ -103,6 +103,7 @@ export default function Projects() {
         spacing={1}
         marginTop={5}
         marginBottom={10}
+        minHeight={600}
       >
         {filteredProjects?.map((project) => (
           <ProjectCard
