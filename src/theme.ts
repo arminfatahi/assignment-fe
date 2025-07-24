@@ -43,7 +43,7 @@ export const lightTheme = createTheme({
     },
     secondary: {
       main: "#76ABAE",
-      contrastText: "#222222",
+      contrastText: "#aaaaaa",
     },
     background: {
       default: "#EEEEEE",
@@ -99,7 +99,7 @@ export const darkTheme = createTheme({
     },
     secondary: {
       main: "#4C7578",
-      contrastText: "#222222",
+      contrastText: "#eeeeee",
     },
     background: {
       default: "#31363F",

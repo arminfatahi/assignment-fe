@@ -1,4 +1,5 @@
 import { Bar, BarConfig } from "@ant-design/charts";
+import { useTheme } from "@mui/material";
 
 type BarChartProps = {
   total: number;
@@ -6,6 +7,7 @@ type BarChartProps = {
 };
 
 export default function BarChart({ total, completed }: BarChartProps) {
+  const theme = useTheme();
   const config: BarConfig = {
     data: [
       {
@@ -18,7 +20,7 @@ export default function BarChart({ total, completed }: BarChartProps) {
     yField: "value",
     markBackground: {
       style: {
-        fill: "#eee",
+        fill: theme.palette.secondary.contrastText,
       },
     },
     scale: {
