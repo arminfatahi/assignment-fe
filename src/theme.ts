@@ -42,12 +42,12 @@ export const lightTheme = createTheme({
       contrastText: "#eeeeee",
     },
     secondary: {
-      main: "#8E7DBE",
-      contrastText: "#222222",
+      main: "#76ABAE",
+      contrastText: "#aaaaaa",
     },
     background: {
       default: "#EEEEEE",
-      paper: "#ffffff",
+      paper: "#eeeeee",
     },
     text: {
       primary: "#4C7578",
@@ -59,6 +59,13 @@ export const lightTheme = createTheme({
 export const darkTheme = createTheme({
   typography: {
     fontFamily: roboto.style.fontFamily,
+
+    h2: {
+      fontSize: "4rem",
+      [`@media (max-width:600px)`]: {
+        fontSize: "2.5rem",
+      },
+    },
   },
   cssVariables: {
     colorSchemeSelector: "class",
@@ -88,15 +95,15 @@ export const darkTheme = createTheme({
     mode: "dark",
     primary: {
       main: "#76ABAE",
-      contrastText: "#111111",
+      contrastText: "#444444",
     },
     secondary: {
-      main: "#8E7DBE",
-      contrastText: "#222222",
+      main: "#4C7578",
+      contrastText: "#eeeeee",
     },
     background: {
       default: "#31363F",
-      paper: "#eeeeee",
+      paper: "#222831",
     },
     text: {
       primary: "#76ABAE",

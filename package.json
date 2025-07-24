@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@ant-design/charts": "^2.6.1",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.1",
     "@eslint/eslintrc": "^3.3.1",

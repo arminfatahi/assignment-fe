@@ -1,0 +1,202 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "project_name": "Frontend",
+      "due_date": "11-05-2025",
+      "status": "On Track",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "login",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 2,
+          "task_name": "dashboard",
+          "task_status": "In Progress"
+        },
+        {
+          "task_id": 3,
+          "task_name": "Submition",
+          "task_status": "To Do"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "project_name": "Backend",
+      "due_date": "11-04-2025",
+      "status": "Completed",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "login",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 2,
+          "task_name": "dashboard",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 3,
+          "task_name": "Submition",
+          "task_status": "Done"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "project_name": "Design",
+      "due_date": "11-04-2025",
+      "status": "At Risk",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "login",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 2,
+          "task_name": "dashboard",
+          "task_status": "In Progress"
+        },
+        {
+          "task_id": 3,
+          "task_name": "Submition",
+          "task_status": "To Do"
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "project_name": "CI/CD",
+      "due_date": "11-04-2025",
+      "status": "Completed",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "dockerizing",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 2,
+          "task_name": "deployment",
+          "task_status": "Done"
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "project_name": "Abcd",
+      "due_date": "17-04-2025",
+      "status": "On Track",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "abcd",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 2,
+          "task_name": "efg",
+          "task_status": "Done"
+        },
+        {
+          "task_id": 3,
+          "task_name": "hijk",
+          "task_status": "In Progress"
+        },
+        {
+          "task_id": 4,
+          "task_name": "lmnop",
+          "task_status": "Done"
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "project_name": "Esglmkslkmg",
+      "due_date": "17-11-2025",
+      "status": "On Track",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "kjnkjnjin",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 2,
+          "task_name": "efgkbsfs",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 3,
+          "task_name": "hijk",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 4,
+          "task_name": "lmnop",
+          "task_status": "Done"
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "project_name": "kesgkleksgmsk",
+      "due_date": "17-11-2025",
+      "status": "At Risk",
+      "tasks": [
+        {
+          "task_id": 1,
+          "task_name": "odovjsodmvs",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 2,
+          "task_name": "efgkaksfnakjsfbsfs",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 3,
+          "task_name": "jfansnfoajnsfojan",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 4,
+          "task_name": "fuasnfuasnufnsofnowijfnwefiwd",
+          "task_status": "In Progress"
+        },
+        {
+          "task_id": 5,
+          "task_name": "fwenfwe(fwefnejf)",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 6,
+          "task_name": "fewhfnwef",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 7,
+          "task_name": "gweg",
+          "task_status": "To Do"
+        },
+        {
+          "task_id": 8,
+          "task_name": "egujweougoweb",
+          "task_status": "In Progress"
+        }
+      ]
+    },
+    {
+      "id": 8,
+      "project_name": "empty project",
+      "due_date": "17-11-2025",
+      "status": "On Track",
+      "tasks": []
+    }
+  ]
+}

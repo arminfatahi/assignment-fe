@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { AuthProvider } from "@/context/AuthContext";
 import { darkTheme, lightTheme } from "@/theme";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
+import { ProjectsProvider } from "@/context/ProjectsContext";
 
 type ProviderProps = {
   children: React.ReactNode;
@@ -25,20 +26,22 @@ export default function Provider({ children }: ProviderProps) {
 
   return (
     <AuthProvider>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <div
-          style={{
-            height: "100vh",
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            background: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.background.default})`,
-          }}
-        >
-          {children}
-        </div>
-      </ThemeProvider>
+      <ProjectsProvider>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <div
+            style={{
+              height: "100%",
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              background: `linear-gradient(to bottom, ${theme.palette.primary.main}, ${theme.palette.background.default})`,
+            }}
+          >
+            {children}
+          </div>
+        </ThemeProvider>
+      </ProjectsProvider>
     </AuthProvider>
   );
 }
