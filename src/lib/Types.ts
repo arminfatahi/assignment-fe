@@ -6,6 +6,8 @@ export type User = {
   avatarURL: string | null;
 };
 
+export type StatCardMode = "project" | "task" | "overdue";
+
 export type Task = {
   task_id: number;
   task_name: string;

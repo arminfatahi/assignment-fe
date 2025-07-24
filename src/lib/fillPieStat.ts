@@ -1,8 +1,8 @@
-import { Project } from "./Types";
+import { Project, StatCardMode } from "./Types";
 
 type fillPieStatProps = {
   projects: Project[] | null;
-  mode: "task" | "project";
+  mode: StatCardMode;
 };
 
 type Data = {

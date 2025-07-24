@@ -2,20 +2,19 @@ import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import { SxProps, Theme, useTheme } from "@mui/material";
+import { SxProps, Theme } from "@mui/material";
 import CustomSkeleton from "./CustomSkeleton";
 import { useProjects } from "@/context/ProjectsContext";
-import fillPieStat from "@/lib/fillPieStat";
 import PieCard from "./PieCard";
+import ListCard from "./ListCard";
+import { StatCardMode } from "@/lib/Types";
 
 type StatCardsProps = {
-  mode: "project" | "task";
+  mode: StatCardMode;
 };
 
 export default function StatCard({ mode }: StatCardsProps) {
-  const theme = useTheme();
-  const { projects, loading } = useProjects();
-  const { data, total } = fillPieStat({ projects, mode });
+  const { loading } = useProjects();
 
   const sx: SxProps<Theme> = {
     width: {
@@ -60,10 +59,10 @@ export default function StatCard({ mode }: StatCardsProps) {
               flexDirection="column"
               alignItems="center"
             >
-              <Typography variant="h6" color="textSecondary">
+              <Typography variant="h6" color="textSecondary" marginBottom={2}>
                 {title}
               </Typography>
-              <PieCard mode={mode} />
+              {mode === "overdue" ? <ListCard /> : <PieCard mode={mode} />}
             </Box>
           </CardContent>
         </Card>
