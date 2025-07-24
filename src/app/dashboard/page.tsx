@@ -2,31 +2,16 @@
 
 import Profile from "@/components/Profile";
 import Stats from "@/components/Stats";
+import { useProjects } from "@/context/ProjectsContext";
 import withProtectedRoute from "@/lib/AuthWrapper";
-import { getProjects } from "@/lib/HandleProjects";
-import { Project } from "@/lib/Types";
+
 import { Stack, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
 
 function Dashboard() {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchProjects = async () => {
-      const projectData = await getProjects();
-      if (projectData) {
-        setProjects(projectData);
-      } else {
-      }
-      setLoading(false);
-    };
-    fetchProjects();
-  }, []);
+  useProjects();
 
   return (
     <Stack direction={"column"}>
-      {/*Header*/}
       <Stack
         direction="row"
         spacing={2}
@@ -41,7 +26,7 @@ function Dashboard() {
         <Profile />
       </Stack>
 
-      <Stats projects={projects} />
+      <Stats />
     </Stack>
   );
 }

@@ -1,15 +1,10 @@
 "use client";
 
-import StatCard from "@/components/StatCard";
-import { Project } from "@/lib/Types";
+import PieCard from "@/components/PieCard";
 import { Box, Stack, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
 
-type StatsProps = {
-  projects: Project[];
-};
-
-function Stats({ projects }: StatsProps) {
+function Stats() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [tabIndex, setTabIndex] = useState(0);
@@ -35,9 +30,9 @@ function Stats({ projects }: StatsProps) {
             <Tab label="Overdue" />
           </Tabs>
           <Box marginTop={2}>
-            {tabIndex === 0 && <StatCard mode="project" projects={projects} />}
-            {tabIndex === 1 && <StatCard mode="task" projects={projects} />}
-            {tabIndex === 2 && <StatCard mode="overdue" projects={projects} />}
+            {tabIndex === 0 && <PieCard mode="project" />}
+            {tabIndex === 1 && <PieCard mode="task" />}
+            {tabIndex === 2 && <PieCard mode="overdue" />}
           </Box>
         </Box>
       ) : (
@@ -47,9 +42,9 @@ function Stats({ projects }: StatsProps) {
           marginX="auto"
           marginTop={4}
         >
-          <StatCard mode="project" projects={projects} />
-          <StatCard mode="task" projects={projects} />
-          <StatCard mode="overdue" projects={projects} />
+          <PieCard mode="project" />
+          <PieCard mode="task" />
+          <PieCard mode="overdue" />
         </Stack>
       )}
     </>
