@@ -1,10 +1,6 @@
-import Box from "@mui/material/Box";
-import Card from "@mui/material/Card";
-import CardContent from "@mui/material/CardContent";
-import Typography from "@mui/material/Typography";
 import { Pie, PieConfig } from "@ant-design/plots";
-import { SxProps, Theme, useTheme } from "@mui/material";
-import CustomSkeleton from "./CustomSkeleton";
+import { useTheme } from "@mui/material";
+
 import { useProjects } from "@/context/ProjectsContext";
 import fillPieStat from "@/lib/fillPieStat";
 
@@ -14,26 +10,8 @@ type StatCardsProps = {
 
 export default function PieCard({ mode }: StatCardsProps) {
   const theme = useTheme();
-  const { projects, loading } = useProjects();
+  const { projects } = useProjects();
   const { data, total } = fillPieStat({ projects, mode });
-
-  const sx: SxProps<Theme> = {
-    width: {
-      sm: "100%",
-      md: 280,
-      lg: 350,
-      xl: 400,
-    },
-    maxWidth: "100%",
-    mx: "auto",
-  };
-
-  const title =
-    mode === "project"
-      ? "My Projects"
-      : mode === "task"
-        ? "My Tasks"
-        : "Overdue Projects";
 
   const config: PieConfig = {
     data: data,
@@ -53,6 +31,9 @@ export default function PieCard({ mode }: StatCardsProps) {
         itemLabelFill: `${theme.palette.text.secondary}`,
       },
     },
+    tooltip: {
+      items: ["type"],
+    },
     annotations: [
       {
         type: "text",
@@ -63,43 +44,11 @@ export default function PieCard({ mode }: StatCardsProps) {
           textAlign: "center",
           fontSize: 20,
           fontStyle: "bold",
+          fill: `${theme.palette.text.secondary}`,
         },
       },
     ],
   };
 
-  return (
-    <>
-      {loading ? (
-        <CustomSkeleton
-          variant="rectangular"
-          sx={{
-            ...sx,
-            height: 250,
-            borderRadius: 2,
-          }}
-        />
-      ) : (
-        <Card
-          sx={{
-            ...sx,
-          }}
-        >
-          <CardContent>
-            <Box
-              width={"100%"}
-              display="flex"
-              flexDirection="column"
-              alignItems="center"
-            >
-              <Typography variant="h6" color="textSecondary">
-                {title}
-              </Typography>
-              <Pie {...config} height={200} width={250} />
-            </Box>
-          </CardContent>
-        </Card>
-      )}
-    </>
-  );
+  return <Pie {...config} height={200} width={250} />;
 }
