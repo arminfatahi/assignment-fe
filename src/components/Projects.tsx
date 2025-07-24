@@ -28,7 +28,7 @@ export default function Projects() {
   const filteredProjects = projects?.filter((item) => {
     const matchesQuery =
       !query || item.project_name.toLowerCase().includes(query.toLowerCase());
-    const matchesStatus = status === "All" || item.status === status;
+    const matchesStatus = !status || status === "All" || item.status === status;
     return matchesQuery && matchesStatus;
   });
 
