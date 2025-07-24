@@ -2,13 +2,10 @@
 
 import Profile from "@/components/Profile";
 import Stats from "@/components/Stats";
-import { useProjects } from "@/context/ProjectsContext";
 import withProtectedRoute from "@/lib/AuthWrapper";
 import { Stack, Typography } from "@mui/material";
 
 function Dashboard() {
-  useProjects();
-
   return (
     <Stack direction={"column"}>
       <Stack

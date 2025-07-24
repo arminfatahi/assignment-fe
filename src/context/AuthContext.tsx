@@ -63,6 +63,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     const success = await removeUser();
     if (success) {
       setUser(null);
+
       Cookies.remove("user");
     }
   };

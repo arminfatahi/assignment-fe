@@ -7,6 +7,7 @@ import {
 } from "react";
 import { Project } from "@/lib/Types";
 import { getProjects } from "@/lib/HandleProjects";
+import { useAuth } from "./AuthContext";
 
 type ProjectsContextType = {
   projects: Project[] | null;
@@ -20,19 +21,20 @@ const ProjectsContext = createContext<ProjectsContextType>(
 export const ProjectsProvider = ({ children }: PropsWithChildren) => {
   const [projects, setProjects] = useState<Project[] | null>(null);
   const [loading, setLoading] = useState(true);
+  const { user } = useAuth();
 
   useEffect(() => {
     const fetchUser = async () => {
-      if (projects == null) {
+      if (user != null) {
         const projectData = await getProjects();
         if (projectData) {
           setProjects(projectData);
+          setLoading(false);
         }
       }
-      setLoading(false);
     };
     fetchUser();
-  }, []);
+  }, [user]);
 
   return (
     <ProjectsContext.Provider value={{ projects, loading }}>

@@ -1,1 +1,7 @@
-{}
+{
+  "userID": "1",
+  "name": "salam",
+  "email": "a@a.a",
+  "role": "user",
+  "avatarURL": "images/avatar/profile.jpg"
+}
