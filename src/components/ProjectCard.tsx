@@ -13,6 +13,7 @@ import {
 import { Project } from "@/lib/Types";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import BarChart from "./BarChart";
+import { useModal } from "@/context/ModalContext";
 
 export default function ProjectCard({
   id,
@@ -21,6 +22,8 @@ export default function ProjectCard({
   status,
   tasks,
 }: Project) {
+  const { setOpen, setProjectID } = useModal();
+
   const sx: SxProps<Theme> = {
     width: {
       xs: 200,
@@ -55,7 +58,12 @@ export default function ProjectCard({
 
   return (
     <Card sx={sx} variant="outlined">
-      <CardActionArea>
+      <CardActionArea
+        onClick={() => {
+          setProjectID(id);
+          setOpen(true);
+        }}
+      >
         <CardContent sx={{ height: "100%" }}>
           <Stack spacing={1}>
             <Stack direction={"row"}>
