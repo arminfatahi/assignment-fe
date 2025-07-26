@@ -58,7 +58,7 @@ export default function ProjectCard({
           <Stack spacing={1}>
             <Stack direction={"row"}>
               <Typography
-                mr={"auto"}
+                mr="auto"
                 color="text.primary"
                 fontWeight={600}
                 textAlign="center"
@@ -100,8 +100,12 @@ export default function ProjectCard({
                   justifyContent="center"
                   alignItems="center"
                 >
-                  <Typography variant="body2" color="warning.main">
-                    no tasks for this project!
+                  <Typography
+                    variant="body2"
+                    color="warning.main"
+                    fontWeight="bold"
+                  >
+                    no tasks !!!
                   </Typography>
                 </Stack>
               )}
