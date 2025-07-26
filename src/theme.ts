@@ -15,6 +15,11 @@ export const lightTheme = createTheme({
     colorSchemeSelector: "class",
   },
   components: {
+    MuiTypography: {
+      defaultProps: {
+        noWrap: true,
+      },
+    },
     MuiFormHelperText: {
       styleOverrides: {
         root: {
@@ -71,6 +76,11 @@ export const darkTheme = createTheme({
     colorSchemeSelector: "class",
   },
   components: {
+    MuiTypography: {
+      defaultProps: {
+        noWrap: true,
+      },
+    },
     MuiFormHelperText: {
       styleOverrides: {
         root: {

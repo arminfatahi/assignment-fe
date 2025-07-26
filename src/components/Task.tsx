@@ -39,8 +39,14 @@ export default function Task({ projectID }: TaskProps) {
         <CloseIcon />
       </IconButton>
 
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        {project.project_name}
+      <Typography
+        variant="h4"
+        fontWeight="bold"
+        width="80%"
+        title={project.project_name}
+        gutterBottom
+      >
+        {project.project_name}asfasfas
       </Typography>
 
       <Stack
@@ -59,12 +65,7 @@ export default function Task({ projectID }: TaskProps) {
       </Typography>
 
       {project.tasks.length > 0 ? (
-        <Box
-          sx={{ maxHeight: 300, overflowY: "auto" }}
-          p={1}
-          borderTop={3}
-          borderBottom={3}
-        >
+        <Box sx={{ maxHeight: 300, overflowY: "auto" }} p={1} borderTop={3}>
           <List>
             {project.tasks.map((task) => (
               <ListItem
@@ -85,7 +86,17 @@ export default function Task({ projectID }: TaskProps) {
                   />
                 }
               >
-                <ListItemText color="red" primary={task.task_name} />
+                <ListItemText
+                  primary={
+                    <Typography
+                      title={task.task_name}
+                      width={"50%"}
+                      color="text.primary"
+                    >
+                      {task.task_name}
+                    </Typography>
+                  }
+                />
               </ListItem>
             ))}
           </List>
