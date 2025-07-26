@@ -14,6 +14,7 @@ import { Project } from "@/lib/Types";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import BarChart from "./BarChart";
 import { useModal } from "@/context/ModalContext";
+import { getStatusColor } from "@/lib/utils";
 
 export default function ProjectCard({
   id,
@@ -44,17 +45,6 @@ export default function ProjectCard({
 
   const totalTasks = tasks.length;
   const completedTasks = tasks.filter((t) => t.task_status === "Done").length;
-
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case "On Track":
-        return "warning";
-      case "At Risk":
-        return "error";
-      default:
-        return "success";
-    }
-  };
 
   return (
     <Card sx={sx} variant="outlined">
