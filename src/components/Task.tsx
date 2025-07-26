@@ -80,7 +80,17 @@ export default function Task({ projectID }: TaskProps) {
                   />
                 }
               >
-                <ListItemText color="red" primary={task.task_name} />
+                <ListItemText
+                  primary={
+                    <Typography
+                      title={task.task_name}
+                      width={"50%"}
+                      color="text.primary"
+                    >
+                      {task.task_name}
+                    </Typography>
+                  }
+                />
               </ListItem>
             ))}
           </List>
