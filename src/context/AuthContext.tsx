@@ -8,6 +8,7 @@ import {
 } from "react";
 import { User } from "@/lib/Types";
 import { addUser, removeUser, readUser } from "@/lib/HandleUser";
+import { useRouter } from "next/navigation";
 
 type AuthContextType = {
   user: User | null;
@@ -22,6 +23,7 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUser = async () => {
@@ -51,6 +53,7 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
       if (success) {
         setUser(newUser);
         Cookies.set("user", JSON.stringify(newUser), { expires: 7 });
+        router.push("/dashboard");
         return true;
       }
       return false;
@@ -63,8 +66,8 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
     const success = await removeUser();
     if (success) {
       setUser(null);
-
       Cookies.remove("user");
+      router.push("/login");
     }
   };
 

@@ -141,4 +141,4 @@ function LoginPage() {
   );
 }
 
-export default withProtectedRoute(LoginPage);
+export default LoginPage;
