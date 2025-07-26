@@ -62,6 +62,7 @@ export default function ProjectCard({
                 color="text.primary"
                 fontWeight={600}
                 textAlign="center"
+                title={project_name}
               >
                 {project_name}
               </Typography>
