@@ -5,8 +5,10 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { ListItemButton, SxProps, Theme } from "@mui/material";
 import { useProjects } from "@/context/ProjectsContext";
+import { useModal } from "@/context/ModalContext";
 
 export default function ListCard() {
+  const { setOpen, setProjectID } = useModal();
   const { projects } = useProjects();
 
   const overDueProjects = projects?.filter((project) => {
@@ -54,7 +56,13 @@ export default function ListCard() {
         <List disablePadding>
           {overDueProjects?.map((project) => (
             <ListItem key={project.id} disablePadding>
-              <ListItemButton component="a">
+              <ListItemButton
+                component="a"
+                onClick={() => {
+                  setProjectID(project.id);
+                  setOpen(true);
+                }}
+              >
                 <Box display="flex" py={1} width="100%">
                   <Typography variant="body2" flex={1} fontWeight="bold">
                     {project.project_name}
