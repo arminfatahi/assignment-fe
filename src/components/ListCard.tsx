@@ -38,7 +38,7 @@ export default function ListCard() {
         <Typography variant="body2" flex={1} fontWeight="bold">
           Name
         </Typography>
-        <Typography variant="body2" flex={1} fontWeight="bold">
+        <Typography variant="body2" flex={1} fontWeight="bold" pl={1}>
           Status
         </Typography>
         <Typography variant="body2" flex={1} fontWeight="bold" sx={sxCol}>
@@ -64,10 +64,16 @@ export default function ListCard() {
                 }}
               >
                 <Box display="flex" py={1} width="100%">
-                  <Typography variant="body2" flex={1} fontWeight="bold">
+                  <Typography
+                    title={project.project_name}
+                    variant="body2"
+                    flex={1}
+                    fontWeight="bold"
+                  >
                     {project.project_name}
                   </Typography>
                   <Typography
+                    pl={1}
                     variant="body2"
                     flex={{ xs: 0.8, sm: 1, md: 0.8, lg: 1 }}
                   >
