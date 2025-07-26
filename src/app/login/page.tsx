@@ -11,7 +11,6 @@ import {
 } from "@mui/material";
 import { Google } from "@mui/icons-material";
 import { useAuth } from "@/context/AuthContext";
-import withProtectedRoute from "@/lib/AuthWrapper";
 import { Loading } from "@/components/Loading";
 
 function LoginPage() {

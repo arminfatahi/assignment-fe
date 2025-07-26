@@ -3,7 +3,6 @@
 import Profile from "@/components/Profile";
 import Projects from "@/components/Projects";
 import Stats from "@/components/Stats";
-import withProtectedRoute from "@/lib/AuthWrapper";
 import { Stack, Typography } from "@mui/material";
 
 function Dashboard() {
