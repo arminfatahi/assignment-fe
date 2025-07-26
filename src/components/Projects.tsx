@@ -20,7 +20,7 @@ import { Loading } from "./Loading";
 export default function Projects() {
   const { projects, loading } = useProjects();
   const projectStatus = ["All", "At Risk", "On Track", "Completed"];
-  const [status, setStatus] = useState<string | null>(null);
+  const [status, setStatus] = useState<string>("");
   const [query, setQuery] = useState("");
   const handleChange = (event: SelectChangeEvent) => {
     setStatus(event.target.value as string);
