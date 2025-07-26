@@ -39,8 +39,14 @@ export default function Task({ projectID }: TaskProps) {
         <CloseIcon />
       </IconButton>
 
-      <Typography variant="h4" fontWeight="bold" gutterBottom>
-        {project.project_name}
+      <Typography
+        variant="h4"
+        fontWeight="bold"
+        width="80%"
+        title={project.project_name}
+        gutterBottom
+      >
+        {project.project_name}asfasfas
       </Typography>
 
       <Stack
