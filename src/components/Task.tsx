@@ -58,37 +58,43 @@ export default function Task({ projectID }: TaskProps) {
         Tasks
       </Typography>
 
-      <Box
-        sx={{ maxHeight: 300, overflowY: "auto" }}
-        border={1}
-        p={1}
-        borderRadius={2}
-      >
-        <List>
-          {project.tasks.map((task) => (
-            <ListItem
-              key={task.task_id}
-              sx={{
-                color: "text.secondary",
-                border: "2px solid",
-                borderRadius: 2,
-                mb: 2,
-                px: 2,
-                bgcolor: "background.paper",
-              }}
-              secondaryAction={
-                <Chip
-                  label={task.task_status}
-                  color={getStatusColor(task.task_status)}
-                  size="small"
-                />
-              }
-            >
-              <ListItemText color="red" primary={task.task_name} />
-            </ListItem>
-          ))}
-        </List>
-      </Box>
+      {project.tasks.length > 0 ? (
+        <Box
+          sx={{ maxHeight: 300, overflowY: "auto" }}
+          p={1}
+          borderTop={3}
+          borderBottom={3}
+        >
+          <List>
+            {project.tasks.map((task) => (
+              <ListItem
+                key={task.task_id}
+                sx={{
+                  color: "text.secondary",
+                  border: "2px solid",
+                  borderRadius: 2,
+                  mb: 2,
+                  px: 2,
+                  bgcolor: "background.paper",
+                }}
+                secondaryAction={
+                  <Chip
+                    label={task.task_status}
+                    color={getStatusColor(task.task_status)}
+                    size="small"
+                  />
+                }
+              >
+                <ListItemText color="red" primary={task.task_name} />
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+      ) : (
+        <Typography color="warning" fontWeight="bold">
+          No tasks found for this project !!!
+        </Typography>
+      )}
     </Box>
   );
 }
