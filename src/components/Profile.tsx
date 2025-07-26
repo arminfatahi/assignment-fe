@@ -3,9 +3,11 @@ import { useAuth } from "@/context/AuthContext";
 import { ArrowDropDown } from "@mui/icons-material";
 import { Avatar, Box, Button, Popover, Stack, Typography } from "@mui/material";
 import { useState } from "react";
+import { Loading } from "./Loading";
 
 function Profile() {
   const { logout, user, loading } = useAuth();
+  const [isLoading, setIsLoading] = useState(false);
 
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
@@ -69,10 +71,16 @@ function Profile() {
           <Button
             color="error"
             variant="contained"
-            onClick={() => logout()}
+            sx={{
+              height: 35,
+            }}
+            onClick={() => {
+              setIsLoading(true);
+              logout();
+            }}
             fullWidth
           >
-            Logout
+            {isLoading ? <Loading size={30} /> : <>Logout</>}
           </Button>
         </Box>
       </Popover>

@@ -30,8 +30,15 @@ export default async function handler(
     } catch {
       res.status(500).json({ error: "Failed to add user" });
     }
+  } else if (req.method === "DELETE") {
+    try {
+      await fs.writeFile(filePath, JSON.stringify({}, null, 2), "utf8");
+      res.status(200).json({ success: true });
+    } catch {
+      res.status(500).json({ error: "Failed to remove user" });
+    }
   } else {
-    res.setHeader("Allow", ["GET", "POST"]);
+    res.setHeader("Allow", ["GET", "POST", "DELETE"]);
     res.status(405).end(`Method ${req.method} Not Allowed`);
   }
 }

@@ -6,8 +6,8 @@ import {
   PropsWithChildren,
 } from "react";
 import { Project } from "@/lib/Types";
-import { getProjects } from "@/lib/HandleProjects";
 import { useAuth } from "./AuthContext";
+import { ProjectService } from "@/service/ProjectService";
 
 type ProjectsContextType = {
   projects: Project[] | null;
@@ -26,7 +26,7 @@ export const ProjectsProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const fetchUser = async () => {
       if (user != null) {
-        const projectData = await getProjects();
+        const projectData = await ProjectService.getProjects();
         if (projectData) {
           setProjects(projectData);
           setLoading(false);

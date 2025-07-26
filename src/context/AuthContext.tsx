@@ -7,7 +7,8 @@ import {
   PropsWithChildren,
 } from "react";
 import { User } from "@/lib/Types";
-import { addUser, removeUser, readUser } from "@/lib/HandleUser";
+import { useRouter } from "next/navigation";
+import { UserService } from "@/service/UserService";
 
 type AuthContextType = {
   user: User | null;
@@ -22,10 +23,11 @@ const AuthContext = createContext<AuthContextType>({} as AuthContextType);
 export const AuthProvider = ({ children }: PropsWithChildren) => {
   const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
+  const router = useRouter();
 
   useEffect(() => {
     const fetchUser = async () => {
-      const userData = await readUser();
+      const userData = await UserService.getUser();
       if (userData && userData.userID) {
         setUser(userData);
         Cookies.set("user", JSON.stringify(userData), { expires: 7 });
@@ -47,10 +49,11 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
         avatarURL: "images/avatar/profile.jpg",
       };
 
-      const success = await addUser(newUser);
+      const success = await UserService.addUser(newUser);
       if (success) {
         setUser(newUser);
         Cookies.set("user", JSON.stringify(newUser), { expires: 7 });
+        router.push("/dashboard");
         return true;
       }
       return false;
@@ -60,11 +63,11 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   };
 
   const logout = async (): Promise<void> => {
-    const success = await removeUser();
+    const success = await UserService.removeUser();
     if (success) {
       setUser(null);
-
       Cookies.remove("user");
+      router.push("/login");
     }
   };
 
