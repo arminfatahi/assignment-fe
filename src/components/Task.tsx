@@ -59,12 +59,7 @@ export default function Task({ projectID }: TaskProps) {
       </Typography>
 
       {project.tasks.length > 0 ? (
-        <Box
-          sx={{ maxHeight: 300, overflowY: "auto" }}
-          p={1}
-          borderTop={3}
-          borderBottom={3}
-        >
+        <Box sx={{ maxHeight: 300, overflowY: "auto" }} p={1} borderTop={3}>
           <List>
             {project.tasks.map((task) => (
               <ListItem
