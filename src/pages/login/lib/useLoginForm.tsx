@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useFormInput } from "./useFormInput";
-import { useAuth } from "@/shared/lib/context";
+import { useAuth } from "@/entities/users";
 
 export function useLoginForm() {
   const { login } = useAuth();

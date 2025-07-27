@@ -1,5 +1,4 @@
-import { Project } from "@/entities/projects/model";
-import { StatCardMode } from "@/shared/model";
+import { Project, StatCardMode } from "@/shared/model";
 
 type fillPieStatProps = {
   projects: Project[] | null;
@@ -16,7 +15,7 @@ type fillPieStatOut = {
   total: number;
 };
 
-export default function fillPieStat({
+export function fillPieStat({
   projects,
   mode,
 }: fillPieStatProps): fillPieStatOut {

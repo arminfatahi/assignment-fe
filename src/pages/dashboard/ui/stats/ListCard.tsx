@@ -4,8 +4,8 @@ import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { ListItemButton, SxProps, Theme } from "@mui/material";
-import { useProjects } from "@/shared/lib/context";
 import { useModal } from "@/shared/lib/context";
+import { useProjects } from "../../lib";
 
 export default function ListCard() {
   const { setOpen, setProject } = useModal();

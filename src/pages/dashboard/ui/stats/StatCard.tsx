@@ -3,12 +3,11 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { SxProps, Theme } from "@mui/material";
-import { useProjects } from "@/shared/lib/context";
-
-import { StatCardMode } from "@/shared/types";
 import CustomSkeleton from "@/shared/ui/CustomSkeleton";
 import ListCard from "./ListCard";
 import PieCard from "./PieCard";
+import { useProjects } from "../../lib";
+import { StatCardMode } from "@/shared/model";
 
 type StatCardsProps = {
   mode: StatCardMode;
