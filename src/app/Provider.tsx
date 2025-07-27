@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AuthProvider } from "@/shared/lib/context/AuthContext";
+import { AuthProvider } from "@/shared/lib/context";
 import { darkTheme, lightTheme } from "@/theme";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
-import { ProjectsProvider } from "@/shared/lib/context/ProjectsContext";
+import { ProjectsProvider } from "@/shared/lib/context";
 
 type ProviderProps = {
   children: React.ReactNode;
