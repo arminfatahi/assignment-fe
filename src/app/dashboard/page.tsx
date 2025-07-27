@@ -1,41 +1,14 @@
 "use client";
 
-import Profile from "@/components/Profile";
-import Projects from "@/components/Projects";
-import Stats from "@/components/Stats";
-import CustomModal from "@/components/CustomModal";
-import { ModalProvider } from "@/context/ModalContext";
-import { Stack, Typography } from "@mui/material";
+import { ModalProvider } from "@/shared/lib/context/ModalContext";
+import Dashboard from "@/views/dashboard/ui";
 
-function Dashboard() {
+function DashboardPage() {
   return (
     <ModalProvider>
-      <CustomModal />
-      <Stack direction={"column"}>
-        <Stack
-          direction="row"
-          spacing={2}
-          justifyContent="space-between"
-          alignItems="center"
-          width="100%"
-          marginTop={2}
-        >
-          <Typography
-            color="primary.contrastText"
-            variant="h2"
-            paddingLeft={2}
-            fontWeight="bold"
-          >
-            Dashboard
-          </Typography>
-          <Profile />
-        </Stack>
-
-        <Stats />
-        <Projects />
-      </Stack>
+      <Dashboard />
     </ModalProvider>
   );
 }
 
-export default Dashboard;
+export default DashboardPage;
