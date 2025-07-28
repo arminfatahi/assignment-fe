@@ -26,10 +26,10 @@ export default async function handler(
     try {
       const user: UserWithPass = req.body;
       if (user.email == "a@a.a" && user.password == "abcd") {
-        res.status(401).json({ error: "user or pass might be incorrect" });
-      } else {
         await fs.writeFile(filePath, JSON.stringify(user, null, 2), "utf8");
         res.status(200).json({ success: true });
+      } else {
+        res.status(401).json({ error: "user or pass might be incorrect" });
       }
     } catch {
       res.status(500).json({ error: "Failed to add user" });
