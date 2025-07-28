@@ -6,8 +6,8 @@ import { SxProps, Theme } from "@mui/material";
 import CustomSkeleton from "@/shared/ui/CustomSkeleton";
 import ListCard from "./ListCard";
 import PieCard from "./PieCard";
-import { useProjects } from "../../lib";
 import { StatCardMode } from "@/shared/model";
+import { useProjects } from "../../model/context";
 
 type StatCardsProps = {
   mode: StatCardMode;

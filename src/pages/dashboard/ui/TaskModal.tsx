@@ -1,4 +1,4 @@
-import { useModal } from "@/shared/lib/context";
+import { useModal } from "@/shared/context";
 import CustomModal from "@/shared/ui/CustomModal";
 import Task from "@/shared/ui/Task";
 
