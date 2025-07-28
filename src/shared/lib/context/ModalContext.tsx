@@ -1,4 +1,4 @@
-import { Project } from "@/shared/types";
+import { Project } from "@/shared/model";
 import { createContext, useContext, useState } from "react";
 
 type ModalContextType = {
