@@ -1,7 +1,7 @@
 "use client";
 
-import { ModalProvider } from "@/shared/lib/context/ModalContext";
-import Dashboard from "@/views/dashboard/ui";
+import { ModalProvider } from "@/shared/lib/context";
+import { Dashboard } from "@/pages/dashboard";
 
 function DashboardPage() {
   return (

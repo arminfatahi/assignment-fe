@@ -1,4 +1,4 @@
-import Login from "@/views/login/ui";
+import { Login } from "@/pages/login";
 
 export default function LoginPage() {
   return <Login />;
