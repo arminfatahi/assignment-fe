@@ -18,7 +18,7 @@ type TaskProps = {
   project: Project;
 };
 
-export default function TaskCard({ project }: TaskProps) {
+export function TaskCard({ project }: TaskProps) {
   const { setOpen } = useModal();
 
   if (!project) {

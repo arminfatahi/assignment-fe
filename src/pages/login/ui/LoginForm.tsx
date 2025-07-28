@@ -2,7 +2,7 @@
 
 import { Box, Typography, TextField, Button, Divider } from "@mui/material";
 import { Google } from "@mui/icons-material";
-import { Loading } from "@/shared/ui/Loading";
+import { Loading } from "@/shared/ui";
 import { useLoginForm } from "../lib/useLoginForm";
 
 export default function LoginForm() {

@@ -3,7 +3,7 @@ import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { SxProps, Theme } from "@mui/material";
-import CustomSkeleton from "@/shared/ui/CustomSkeleton";
+import { CustomSkeleton } from "@/shared/ui";
 import ListCard from "./ListCard";
 import PieCard from "./PieCard";
 import { StatCardMode } from "@/shared/model";

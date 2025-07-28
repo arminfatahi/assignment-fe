@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { darkTheme, lightTheme } from "@/theme";
 import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
 import { AuthProvider } from "@/shared/context";
-import { ProjectsProvider } from "@/pages/dashboard/model/context";
+import { ProjectsProvider } from "@/pages/dashboard";
 
 type ProviderProps = {
   children: React.ReactNode;

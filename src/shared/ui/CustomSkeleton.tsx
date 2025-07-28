@@ -5,7 +5,7 @@ type CustomSkeletonProps = SkeletonProps & {
   children?: React.ReactNode;
 };
 
-function CustomSkeleton({ children, sx, ...rest }: CustomSkeletonProps) {
+export function CustomSkeleton({ children, sx, ...rest }: CustomSkeletonProps) {
   const theme = useTheme();
 
   return (
@@ -23,5 +23,3 @@ function CustomSkeleton({ children, sx, ...rest }: CustomSkeletonProps) {
     </Skeleton>
   );
 }
-
-export default CustomSkeleton;

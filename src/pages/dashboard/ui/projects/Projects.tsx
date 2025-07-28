@@ -15,7 +15,7 @@ import InputAdornment from "@mui/material/InputAdornment";
 import { Search } from "@mui/icons-material";
 import { useState } from "react";
 
-import { Loading } from "@/shared/ui/Loading";
+import { Loading } from "@/shared/ui";
 import { useProjects } from "../../model/context";
 import ProjectCard from "./ProjectCard";
 
