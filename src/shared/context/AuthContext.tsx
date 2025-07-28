@@ -1,4 +1,3 @@
-import Cookies from "js-cookie";
 import {
   createContext,
   useContext,
@@ -8,7 +7,12 @@ import {
 } from "react";
 import { useRouter } from "next/navigation";
 import { UserService } from "@/shared/api";
-import { User } from "@/shared/model";
+import { User, UserWithPass } from "@/shared/model";
+import {
+  getUserFromCookie,
+  setUserCookie,
+  removeUserCookie,
+} from "@/shared/lib/auth/persistUser";
 
 type AuthContextType = {
   user: User | null;
@@ -28,45 +32,49 @@ export const AuthProvider = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     const fetchUser = async () => {
       const userData = await UserService.getUser();
+
+      const cookieUser = getUserFromCookie();
+      if (cookieUser) {
+        setUser(cookieUser);
+      }
+
       if (userData && userData.userID) {
         setUser(userData);
-        Cookies.set("user", JSON.stringify(userData), { expires: 7 });
+        setUserCookie(userData);
       } else {
-        Cookies.remove("user");
+        removeUserCookie();
       }
       setLoading(false);
     };
+
     fetchUser();
   }, []);
 
   const login = async (email: string, password: string): Promise<boolean> => {
-    if (email === "a@a.a" && password === "abcd") {
-      const newUser: User = {
-        userID: "1",
-        name: "salam",
-        email,
-        role: "user",
-        avatarURL: "images/avatar/profile.jpg",
-      };
+    const newUser: UserWithPass = {
+      userID: "1",
+      name: "salam",
+      email,
+      password: password,
+      role: "user",
+      avatarURL: "images/avatar/profile.jpg",
+    };
 
-      const success = await UserService.addUser(newUser);
-      if (success) {
-        setUser(newUser);
-        Cookies.set("user", JSON.stringify(newUser), { expires: 7 });
-        router.push("/dashboard");
-        return true;
-      }
-      return false;
-    } else {
-      return false;
+    const success = await UserService.addUser(newUser);
+    if (success) {
+      setUser(newUser);
+      setUserCookie(newUser);
+      router.push("/dashboard");
+      return true;
     }
+    return false;
   };
 
   const logout = async (): Promise<void> => {
     const success = await UserService.removeUser();
     if (success) {
       setUser(null);
-      Cookies.remove("user");
+      removeUserCookie();
       router.push("/login");
     }
   };

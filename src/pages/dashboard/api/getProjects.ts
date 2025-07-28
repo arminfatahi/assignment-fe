@@ -1,4 +1,4 @@
-import { apiFetch } from "@/service/api";
+import { apiFetch } from "@/shared/api";
 import { Project } from "@/shared/model";
 
 type ProjectsData = {

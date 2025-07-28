@@ -11,9 +11,10 @@ import {
   Theme,
 } from "@mui/material";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
-import { useModal } from "@/shared/lib/context";
-import { getStatusColor, Project } from "@/shared/model";
+import { useModal } from "@/shared/context";
+import { Project } from "@/shared/model";
 import BarChart from "./BarChart";
+import { getStatusColor } from "@/shared/lib";
 
 export default function ProjectCard({
   id,

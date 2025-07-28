@@ -1,4 +1,4 @@
-import { useModal } from "@/shared/lib/context/ModalContext";
+import { useModal } from "@/shared/context/ModalContext";
 import {
   Box,
   Typography,
@@ -11,14 +11,14 @@ import {
   IconButton,
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
-import { getStatusColor } from "@/shared/model/utils";
-import { Project } from "@/shared/types";
+import { getStatusColor } from "@/shared/lib/utils";
+import { Project } from "../model";
 
 type TaskProps = {
   project: Project;
 };
 
-export default function TaskCard({ project }: TaskProps) {
+export function TaskCard({ project }: TaskProps) {
   const { setOpen } = useModal();
 
   if (!project) {

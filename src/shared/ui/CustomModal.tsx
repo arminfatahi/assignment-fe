@@ -2,7 +2,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import { useModal } from "@/shared/lib/context/";
+import { useModal } from "@/shared/context";
 import { SxProps, Theme } from "@mui/material";
 
 const style: SxProps<Theme> = {
@@ -17,11 +17,7 @@ const style: SxProps<Theme> = {
   p: 4,
 };
 
-export default function CustomModal({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export function CustomModal({ children }: { children: React.ReactNode }) {
   const { open, setOpen } = useModal();
   const handleClose = () => setOpen(false);
 

@@ -1,9 +1,8 @@
-import CustomSkeleton from "@/shared/ui/CustomSkeleton";
-import { Loading } from "@/shared/ui/Loading";
+import { useAuth } from "@/shared/context";
+import { CustomSkeleton, Loading } from "@/shared/ui";
 import { ArrowDropDown } from "@mui/icons-material";
 import { Avatar, Box, Button, Popover, Stack, Typography } from "@mui/material";
 import { useState } from "react";
-import { useAuth } from "../lib/context";
 
 export function Profile() {
   const { logout, user, loading } = useAuth();

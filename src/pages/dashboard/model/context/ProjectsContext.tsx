@@ -8,7 +8,7 @@ import {
 
 import { Project } from "@/shared/model";
 import { getProjects } from "../../api";
-import { useAuth } from "@/entities/users";
+import { useAuth } from "@/shared/context";
 
 type ProjectsContextType = {
   projects: Project[] | null;

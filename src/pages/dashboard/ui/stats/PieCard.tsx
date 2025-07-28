@@ -1,6 +1,7 @@
 import { Pie, PieConfig } from "@ant-design/plots";
 import { useTheme } from "@mui/material";
-import { fillPieStat, useProjects } from "../../lib";
+import { useProjects } from "../../model/context";
+import { fillPieStat } from "../../lib";
 
 type StatCardsProps = {
   mode: "project" | "task";

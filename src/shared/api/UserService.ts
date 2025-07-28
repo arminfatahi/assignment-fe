@@ -1,5 +1,5 @@
-import { apiFetch } from "../../service/api";
-import { User } from "../types";
+import { apiFetch } from "./api";
+import { User } from "../model";
 
 export const UserService = {
   async addUser(user: User): Promise<boolean> {

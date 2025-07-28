@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { promises as fs } from "fs";
-import { Project } from "@/shared/types";
+import { Project } from "@/shared/model";
 
 const filePath = "src/mock/projects.json";
 

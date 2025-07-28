@@ -1,12 +1,11 @@
-import { useModal } from "@/shared/lib/context";
-import CustomModal from "@/shared/ui/CustomModal";
-import Task from "@/shared/ui/Task";
+import { useModal } from "@/shared/context";
+import { CustomModal, TaskCard } from "@/shared/ui";
 
 export default function TaskModal() {
   const { project } = useModal();
   return (
     <CustomModal>
-      <Task project={project} />
+      <TaskCard project={project} />
     </CustomModal>
   );
 }
