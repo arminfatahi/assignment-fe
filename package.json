@@ -16,7 +16,8 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "fsd": "npx steiger ./src"
   },
   "devDependencies": {
     "@feature-sliced/steiger-plugin": "^0.5.7",
