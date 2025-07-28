@@ -13,10 +13,11 @@ import {
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import { useModal } from "@/shared/context";
 import { Project } from "@/shared/model";
-import BarChart from "./BarChart";
 import { getStatusColor } from "@/shared/lib";
+import { fillBarChart } from "../lib";
+import BarChart from "./BarChart";
 
-export default function ProjectCard({
+export function ProjectCard({
   id,
   project_name,
   due_date,
@@ -43,8 +44,7 @@ export default function ProjectCard({
     borderRadius: 3,
   };
 
-  const totalTasks = tasks.length;
-  const completedTasks = tasks.filter((t) => t.task_status === "Done").length;
+  const { totalTasks, completedTasks } = fillBarChart(tasks);
 
   return (
     <Card sx={sx} variant="outlined">

@@ -4,16 +4,16 @@ import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
 import { SxProps, Theme } from "@mui/material";
 import { CustomSkeleton } from "@/shared/ui";
+import { StatCardMode } from "@/shared/model";
+import { useProjects } from "../../../pages/dashboard/model/context";
 import ListCard from "./ListCard";
 import PieCard from "./PieCard";
-import { StatCardMode } from "@/shared/model";
-import { useProjects } from "../../model/context";
 
 type StatCardsProps = {
   mode: StatCardMode;
 };
 
-export default function StatCard({ mode }: StatCardsProps) {
+export function StatCard({ mode }: StatCardsProps) {
   const { loading } = useProjects();
 
   const sx: SxProps<Theme> = {

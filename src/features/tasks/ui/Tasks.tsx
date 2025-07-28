@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import { getStatusColor } from "@/shared/lib/utils";
-import { Project } from "../model";
+import { Project } from "@/shared/model";
 
 type TaskProps = {
   project: Project;

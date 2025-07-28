@@ -1,10 +1,10 @@
 "use client";
 
+import { StatCard } from "@/features/stats/ui";
 import { Box, Grid, Tab, Tabs, useMediaQuery, useTheme } from "@mui/material";
 import { useState } from "react";
-import StatCard from "./StatCard";
 
-export function Stats() {
+export function DashStats() {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
   const [tabIndex, setTabIndex] = useState(0);

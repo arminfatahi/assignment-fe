@@ -17,7 +17,7 @@ import { useState } from "react";
 
 import { Loading } from "@/shared/ui";
 import { useProjects } from "../../model/context";
-import ProjectCard from "./ProjectCard";
+import { ProjectsGrid } from "@/features/projects/ui";
 
 export default function Projects() {
   const { projects, loading } = useProjects();
@@ -102,28 +102,13 @@ export default function Projects() {
         </Stack>
       </Stack>
 
-      <Grid
-        paddingX={1}
-        container
-        rowGap={4}
-        marginX="auto"
-        spacing={1}
-        marginTop={5}
-        marginBottom={10}
-        minHeight={600}
-      >
-        {filteredProjects?.map((project) => (
-          <ProjectCard
-            key={project.id}
-            id={project.id}
-            project_name={project.project_name}
-            due_date={project.due_date}
-            status={project.status}
-            tasks={project.tasks}
-          />
-        ))}
-        {loading && <Loading size={40} color="primary.contrastText" />}
-      </Grid>
+      <Box minHeight={600}>
+        {loading ? (
+          <Loading size={40} color="primary.contrastText" />
+        ) : (
+          <ProjectsGrid projects={filteredProjects} />
+        )}
+      </Box>
     </Box>
   );
 }

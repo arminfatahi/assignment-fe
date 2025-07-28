@@ -5,7 +5,7 @@ import ListItem from "@mui/material/ListItem";
 import Typography from "@mui/material/Typography";
 import { ListItemButton, SxProps, Theme } from "@mui/material";
 import { useModal } from "@/shared/context";
-import { useProjects } from "../../model/context";
+import { useProjects } from "../../../pages/dashboard/model/context";
 
 export default function ListCard() {
   const { setOpen, setProject } = useModal();
