@@ -6,6 +6,8 @@ export type User = {
   avatarURL: string | null;
 };
 
+export type UserWithPass = User & { password: string };
+
 export type StatCardMode = "project" | "task" | "overdue";
 
 export type Task = {
