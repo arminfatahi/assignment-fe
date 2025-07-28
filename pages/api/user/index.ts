@@ -1,6 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { promises as fs } from "fs";
-import { User } from "@/shared/types";
+import { User, UserWithPass } from "@/shared/model";
 
 const filePath = "src/mock/users.json";
 
@@ -24,9 +24,13 @@ export default async function handler(
     }
   } else if (req.method === "POST") {
     try {
-      const user: User = req.body;
-      await fs.writeFile(filePath, JSON.stringify(user, null, 2), "utf8");
-      res.status(200).json({ success: true });
+      const user: UserWithPass = req.body;
+      if (user.email == "a@a.a" && user.password == "abcd") {
+        res.status(401).json({ error: "user or pass might be incorrect" });
+      } else {
+        await fs.writeFile(filePath, JSON.stringify(user, null, 2), "utf8");
+        res.status(200).json({ success: true });
+      }
     } catch {
       res.status(500).json({ error: "Failed to add user" });
     }
