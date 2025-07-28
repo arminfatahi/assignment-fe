@@ -1,4 +1,4 @@
-import { apiFetch } from "../../service/api";
+import { apiFetch } from "./api";
 import { User } from "../model";
 
 export const UserService = {
